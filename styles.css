@@ -1,0 +1,201 @@
+/* Reset some default styles */
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+/* Basic Body Styling */
+body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+      background: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+}
+
+header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+}
+
+header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+      color: #ff9900;
+}
+
+/* Home Section Styling */
+.home {
+      background-color: #ff9900;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+}
+
+.home h1 {
+      font-size: 2.5em;
+}
+
+.home p {
+      font-size: 1.2em;
+      margin-top: 10px;
+}
+
+/* About Section Styling */
+.about {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+}
+
+.about h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+}
+
+/* Skills Section Styling */
+.skills {
+      background-color: #e7e7e7;
+      padding: 40px 20px;
+}
+
+.skills h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+}
+
+.skills ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+}
+
+.skills ul li {
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+}
+
+.skills ul li:hover {
+      transform: scale(1.1);
+}
+
+/* Projects Section Styling */
+.projects {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+}
+
+.projects h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+}
+
+.project-cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+}
+
+.project-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+}
+
+.project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+}
+
+.project-card p {
+      font-size: 1em;
+}
+
+/* Contact Section Styling */
+.contact {
+      background-color: #f4f4f9;
+      padding: 40px 20px;
+      text-align: center;
+}
+
+.contact h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+}
+
+.contact ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+}
+
+.contact ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      transition: color 0.3s ease;
+}
+
+.contact ul li a:hover {
+      color: #ff9900;
+}
+
+/* Footer Styling */
+footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+}
+
+footer p {
+      font-size: 14px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+      .nav-list {
+            flex-direction: column;
+      }
+
+      .project-cards {
+            flex-direction: column;
+            align-items: center;
+      }
+
+      .skills ul {
+            flex-direction: column;
+      }
+}

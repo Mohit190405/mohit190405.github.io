@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Portfolio of Mohit Kumar Prajapati, a Web Developer" />
+      <title>Mohit Prajapati - Portfolio</title>
+      <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+      <!-- Header -->
+      <header>
+            <nav>
+                  <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                  </ul>
+            </nav>
+      </header>
+
+      <!-- Main Content -->
+      <main>
+            <!-- Home Section -->
+            <section id="home" class="home">
+                  <h1>Hi, I'm Mohit Prajapati</h1>
+                  <p>
+                        Freelance Android & React Native Developer | Java, Android Studio
+                        Expert | Digital Marketing Specialist | Helping Brands Build Mobile
+                        Solutions
+                  </p>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="about">
+                  <h2>About Me</h2>
+                  <p>
+                        I’m a passionate Freelance Android & React Native Developer with 1+
+                        year of experience, specializing in creating innovative, high-performance
+                        mobile apps. I offer custom Android & React Native development, UI/UX
+                        design, app deployment, and digital marketing services to enhance user
+                        engagement.
+                  </p>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="skills">
+                  <h2>Skills</h2>
+                  <ul>
+                        <li>Font-End Development</li>
+                        <li>Node.js</li>
+                        <li>Git & GitHub</li>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>Mobile App Development</li>
+                        <li>React Native</li>
+                  </ul>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="projects">
+                  <h2>My Projects</h2>
+                  <div class="project-cards">
+                        <div class="project-card">
+                              <h3>Skill Sync</h3>
+                              <p>Real-Time Collaborative Learning Platform</p>
+                              <p>A real-time platform for collaborative learning with live sessions and personalized
+                                    learning paths.</p>
+                        </div>
+                        <div class="project-card">
+                              <h3>Farmer's Assistant</h3>
+                              <p>Android-based Farmer Application</p>
+                              <p>Helps farmers with weather forecasts, crop management, market prices, and pest control
+                                    info.</p>
+                        </div>
+                        <div class="project-card">
+                              <h3>Eco-Friendly Garden</h3>
+                              <p>Community Garden for Sustainable Living</p>
+                              <p>Promotes eco-friendly practices with workshops on composting and rainwater harvesting.
+                              </p>
+                        </div>
+                  </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact">
+                  <h2>Contact</h2>
+                  <p>If you'd like to collaborate or have any inquiries, feel free to reach out!</p>
+                  <ul>
+                        <li><a href="mailto:prajapatimohith91@gmail.com">Email</a></li>
+                        <li><a href="https://wa.me/919723557129">Whatsapp</a></li>
+                        <li><a href="https://www.linkedin.com/in/mohitkumar-prajapati-7b7662244/"
+                                    target="_blank">LinkedIn</a></li>
+                        <li><a href="https://github.com/Mohit190405" target="_blank">GitHub</a></li>
+                  </ul>
+            </section>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+            <p>&copy; 2025 Mohit Prajapati. All Rights Reserved.</p>
+      </footer>
+
+      <!-- Smooth Scroll JavaScript -->
+      <script>
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                  anchor.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute("href")).scrollIntoView({
+                              behavior: "smooth",
+                        });
+                  });
+            });
+      </script>
+</body>
+
+</html>
