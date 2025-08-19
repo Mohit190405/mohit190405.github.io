@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohit Prajapati Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.6;
+      scroll-behavior: smooth; /* smooth scroll */
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    nav h1 {
+      font-weight: 600;
+      color: #38bdf8;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f1f5f9;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0.5rem 0;
+      font-weight: 700;
+      color: #38bdf8;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    header h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    .typed-text {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #fbbf24; /* yellow accent */
+      margin-top: 1rem;
+      min-height: 30px;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      max-width: 700px;
+      opacity: 0.8;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      background: #38bdf8;
+      color: #0f172a;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 5rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+
+    .hidden {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1e293b;
+      margin-top: 3rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Mohit Prajapati</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="licenses.html">Licenses & Certifications</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <h1>Mohitkumar Prajapati</h1>
+    <h2>He/Him</h2>
+    <div class="typed-text" id="typed"></div>
+    <p>
+      V-Ex Tech (Software Company, Vadodara) <br>
+      Parul Institute of Engineering and Technology, Limda, Waghodia 037 <br>
+      Vadodara, Gujarat, India
+    </p>
+    <a href="projects.html" class="btn">View My Work</a>
+  </header>
+
+  
+  <footer>
+    <p>© 2025 Mohitkumar Prajapati | All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Scroll animation observer
+    const sections = document.querySelectorAll('.hidden');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+    sections.forEach(section => observer.observe(section));
+
+    // Typing effect for roles
+    const roles = [
+      "React Native Developer",
+      "Data Analyst",
+      "Intern At V-Ex Tech",
+      "B.Tech CSE Student At Parul University"
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let typing = true;
+    const typedElement = document.getElementById("typed");
+
+    function typeEffect() {
+      if (typing) {
+        if (charIndex < roles[roleIndex].length) {
+          typedElement.textContent += roles[roleIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(typeEffect, 100);
+        } else {
+          typing = false;
+          setTimeout(typeEffect, 1500); // pause after typing
+        }
+      } else {
+        if (charIndex > 0) {
+          typedElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(typeEffect, 50);
+        } else {
+          typing = true;
+          roleIndex = (roleIndex + 1) % roles.length;
+          setTimeout(typeEffect, 500);
+        }
+      }
+    }
+
+    typeEffect();
+  </script>
+</body>
+</html>
