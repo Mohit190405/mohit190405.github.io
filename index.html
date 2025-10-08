@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MohitKumar (Coder Mohit) — Portfolio</title>
+  <meta name="description" content="MohitKumar Prajapati — React Native Developer | Java & Python | Intern @ V-Ex Tech. Scalable apps, mobile-first, Firebase, RN." />
+  <style>
+    :root{
+      --bg:#081028;
+      --card:#0e1a2a;
+      --muted:#9aa6b2;
+      --accent: linear-gradient(135deg,#7c3aed 0%,#06b6d4 100%);
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --glass-border: rgba(255,255,255,0.06);
+      --glass-strong: rgba(255,255,255,0.06);
+      --glass-soft: rgba(0,0,0,0.35);
+      --glass-glow: rgba(124,58,237,0.12);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:radial-gradient(1200px 500px at 10% 10%, rgba(124,58,237,0.08), transparent),
+                 radial-gradient(900px 400px at 90% 90%, rgba(6,182,212,0.06), transparent),
+                 var(--bg);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    /* Layout */
+    .container{max-width:1100px;margin:0 auto;padding:48px 24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#06b6d4);display:grid;place-items:center;font-weight:700;font-size:18px;box-shadow:0 6px 24px rgba(2,6,23,0.6),0 0 30px var(--glass-glow);
+    }
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;transition:.28s;}
+    nav a:hover{color:#fff;background:linear-gradient(90deg,rgba(255,255,255,0.03),transparent)}
+    .cta{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:var(--glass);border:1px solid var(--glass-border);box-shadow:0 6px 18px rgba(0,0,0,0.5);}
+    .theme-toggle{background:none;border:1px solid var(--glass-border);padding:8px;border-radius:10px;color:var(--muted);cursor:pointer}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:36px;align-items:center;padding:44px 0}
+    .intro h1{font-size:36px;margin:0 0 12px 0;letter-spacing:-0.6px}
+    .intro p{margin:0 0 18px;color:var(--muted);line-height:1.5}
+    .badges{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent);border:1px solid var(--glass-border);font-weight:600;color:var(--muted)}
+
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+      border-radius:18px;padding:20px;border:1px solid var(--glass-border);backdrop-filter: blur(6px);
+      box-shadow:0 12px 40px rgba(0,0,0,0.5);
+    }
+
+    .avatar{height:320px;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#0f1724,#0b1220);display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .avatar .name{font-weight:700;font-size:20px}
+    .avatar .role{color:var(--muted);font-size:13px}
+    .skill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+    /* Sections */
+    section{padding:72px 0;border-top:1px dashed rgba(255,255,255,0.02)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+
+    /* Project cards */
+    .project{padding:18px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.03);transition:transform .36s,box-shadow .36s}
+    .project:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+    .project h3{margin:0 0 8px}
+    .project p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Skills */
+    .skill{padding:14px;border-radius:12px;background:var(--card);border:1px solid rgba(255,255,255,0.02)}
+    .bar{height:10px;background:linear-gradient(90deg,rgba(255,255,255,0.03),transparent);border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,#7c3aed,#06b6d4);border-radius:999px;transition:width 1.2s cubic-bezier(.2,.9,.3,1)}
+
+    /* Timeline */
+    .timeline{position:relative;padding-left:28px}
+    .timeline::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(#7c3aed,#06b6d4);opacity:.12}
+    .event{position:relative;margin-bottom:26px;padding:8px 12px;border-radius:12px}
+    .event .dot{position:absolute;left:-20px;top:8px;width:14px;height:14px;border-radius:999px;background:#0b1220;border:3px solid #7c3aed;box-shadow:0 6px 18px rgba(124,58,237,0.12)}
+
+    /* Certifications */
+    .cert{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:12px}
+
+    /* Contact */
+    form{display:grid;gap:12px}
+    input,textarea,button{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    button{cursor:pointer;background:linear-gradient(90deg,#7c3aed,#06b6d4);border:0;font-weight:700}
+
+    /* Footer */
+    footer{padding:28px 0;color:var(--muted);text-align:center}
+
+    /* Reveal animations */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.3,1)}
+    .reveal.in-view{opacity:1;transform:none}
+
+    /* micro interactions */
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(90deg,transparent,rgba(255,255,255,0.01));}
+
+    /* Responsive */
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr;}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      nav{display:none}
+      header{align-items:flex-start}
+    }
+
+    /* subtle entrance */
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+    .js-floating{animation:floaty 6s ease-in-out infinite}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">MP</div>
+        <div>
+          <div style="font-weight:700">MOHITKUMAR PRAJAPATI</div>
+          <div style="font-size:12px;color:var(--muted)">React Native Developer • Java & Python • Intern @ V-Ex Tech</div>
+        </div>
+      </div>
+      <nav aria-label="Main Navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Work</a>
+        <a href="#education">Education</a>
+        <a href="#licenses">Licenses</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌗</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="intro">
+          <div class="reveal">
+            <h1>Hi — I'm Mohit Kumar.</h1>
+            <p>React Native Developer & B.Tech (CSE). I build scalable, cross-platform mobile apps with Java, Python & Firebase. Currently interning at V-Ex Tech — merging fashion with tech.</p>
+            <div class="badges">
+              <span class="badge">React Native</span>
+              <span class="badge">Java</span>
+              <span class="badge">Python</span>
+              <span class="badge">LeetCode</span>
+            </div>
+            <div style="margin-top:18px;display:flex;gap:12px">
+              <a class="chip" href="#projects">See Projects →</a>
+              <a class="chip" href="#contact">Let's Talk</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card avatar reveal js-floating">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:68px;height:68px;border-radius:12px;background:linear-gradient(135deg,#06b6d4,#7c3aed);display:grid;place-items:center;font-weight:800">M</div>
+            <div>
+              <div class="name">MohitKumar Prajapati</div>
+              <div class="role">React Native Developer • Intern @ V-Ex Tech</div>
+            </div>
+          </div>
+          <div style="margin-top:14px;color:var(--muted);font-size:13px">Vadodara, Gujarat, India — B.Tech CSE @ Parul University</div>
+
+          <div style="margin-top:14px;display:flex;justify-content:space-between;gap:10px">
+            <div style="flex:1">
+              <div style="font-size:12px;color:var(--muted)">Experience</div>
+              <div style="font-weight:700">1 yr 6 mos</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="badge">Open to Work</a>
+            <a class="badge">Freelance</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about">
+        <div class="reveal">
+          <h2>About</h2>
+          <p style="color:var(--muted);max-width:70%">Computer Science Engineering student and React Native Developer with experience in building mobile and web apps using React Native, Java, Python, and Firebase. Passionate about creating impactful digital solutions and eager to grow as a Software Developer in a dynamic team. Organized workshops and active in tech communities.</p>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="reveal">
+          <h2>Projects</h2>
+          <div class="grid-3" style="margin-top:18px">
+
+            <article class="project" data-modal='{"title":"V ex tech and clothing","desc":"Merging fashion and function — V-Ex creates next-gen smart clothing powered by React Native apps, blending style with real-time tech.","link":"#"}'>
+              <h3>V ex tech and clothing</h3>
+              <div style="color:var(--muted);font-size:13px">Jul 2024 - Jun 2025 · Associated with V-Ex Tech (Vadodara)</div>
+              <p>Cross-platform E-commerce app. Auth, product listings, cart, payments, Firebase Realtime DB & Cloud Messaging.</p>
+            </article>
+
+            <article class="project" data-modal='{"title":"Android base Farmer Application","desc":"Farmer\'s Assistant: weather, crop tips, market prices. Android base with Java + APIs.","link":"https://github.com/Mohit190405/vhx-Android"}'>
+              <h3>Android base Farmer Application</h3>
+              <div style="color:var(--muted);font-size:13px">Jun 2024 - Mar 2025 · Parul University</div>
+              <p>Android app to support agricultural productivity — weather forecasts, crop management tips, market prices, pest control.</p>
+            </article>
+
+            <article class="project" data-modal='{"title":"Smart Farm App","desc":"Smart Farm IoT backed app — prototype to improve crop yield and monitoring.","link":"#"}'>
+              <h3>Smart Farm App</h3>
+              <div style="color:var(--muted);font-size:13px">Project (Prototype)</div>
+              <p>IoT integration, sensors dashboard, alerts, and cloud sync for farmers.</p>
+            </article>
+
+            <article class="project" data-modal='{"title":"Online Restaurant Booking App","desc":"Table reservations, menu browsing and payments — React Native + Firebase.","link":"https://github.com/Mohit190405/food-app"}'>
+              <h3>Online Restaurant Booking App</h3>
+              <div style="color:var(--muted);font-size:13px">May 2024 - Jun 2024</div>
+              <p>Responsive UI from Figma, REST API integration, booking flow and payment gateway integration.</p>
+            </article>
+
+            <article class="project" data-modal='{"title":"College Management System (CMS)","desc":"Comprehensive college admin system — enrollment, attendance, grading, fees.","link":"https://github.com/Mohit190405/College-Management-System"}'>
+              <h3>College Management System (CMS)</h3>
+              <div style="color:var(--muted);font-size:13px">Nov 2023 - Apr 2024 · Parul University</div>
+              <p>Full-stack project to automate administrative tasks: enrollment, course registration, attendance, grade and financial management.</p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="reveal">
+          <h2>Skills</h2>
+          <p style="color:var(--muted);max-width:85%">Skills & Technologies</p>
+          <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px">
+            <span class="badge">React Native</span>
+            <span class="badge">Java</span>
+            <span class="badge">Python</span>
+            <span class="badge">C++</span>
+            <span class="badge">Database Development</span>
+            <span class="badge">Back-End Web Development</span>
+            <span class="badge">Frontend Development</span>
+          </div>
+
+          <div class="grid-3" style="margin-top:18px">
+            <div class="skill">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><strong>React Native</strong><span style="color:var(--muted)">Expert</span></div>
+              <div class="bar"><i data-width="94%"></i></div>
+            </div>
+
+            <div class="skill">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><strong>Java / Android</strong><span style="color:var(--muted)">Advanced</span></div>
+              <div class="bar"><i data-width="86%"></i></div>
+            </div>
+
+            <div class="skill">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><strong>Python & Backend</strong><span style="color:var(--muted)">Advanced</span></div>
+              <div class="bar"><i data-width="80%"></i></div>
+            </div>
+
+            <div class="skill">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><strong>Frontend Development</strong><span style="color:var(--muted)">Advanced</span></div>
+              <div class="bar"><i data-width="90%"></i></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="reveal">
+          <h2>Experience</h2>
+          <div class="timeline" style="margin-top:18px">
+            <div class="event card">
+              <div class="dot"></div>
+              <div style="font-weight:700">React Native Developer — V-Ex Tech Solution</div>
+              <div style="color:var(--muted);font-size:13px">Jul 2024 - Present · Vadodara, Gujarat, India</div>
+              <div style="margin-top:8px;color:var(--muted);font-size:14px">Built and optimized a cross-platform E-commerce mobile application, integrated payments, REST APIs, and Firebase features. From intern to freelance contributor.</div>
+            </div>
+
+            <div class="event card">
+              <div class="dot"></div>
+              <div style="font-weight:700">Intern — V-Ex Tech Solution</div>
+              <div style="color:var(--muted);font-size:13px">May 2024 - Jun 2024</div>
+              <div style="margin-top:8px;color:var(--muted);font-size:14px">Online Restaurant Booking app — UI from Figma, REST integration, Firebase services.</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="reveal">
+          <h2>Education</h2>
+          <div class="grid-2" style="margin-top:18px">
+            <div class="card">
+              <strong>Parul University — B.Tech (CSE)</strong>
+              <div style="color:var(--muted);font-size:13px">Jun 2025 - May 2028 (ongoing)</div>
+              <p style="color:var(--muted);margin-top:8px">Developer Student Club, IEEE Student Chapter, Hackathons, Coding Club.</p>
+            </div>
+
+            <div class="card">
+              <strong>Parul University — Diploma in Computer Engineering</strong>
+              <div style="color:var(--muted);font-size:13px">Oct 2022 - Apr 2025</div>
+              <p style="color:var(--muted);margin-top:8px">Grade: 7.57 — Founder of Freelancers & Digital Marketing Club; organized workshops.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="licenses">
+        <div class="reveal">
+          <h2>Licenses & Certifications</h2>
+          <div style="margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+            <div class="cert card">
+              <div style="font-weight:700">Python (Basic) — HackerRank</div>
+              <div style="color:var(--muted);font-size:13px">Issued Aug 2025</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">Introduction to Generative AI Studio — Google</div>
+              <div style="color:var(--muted);font-size:13px">Issued Jul 2025</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">GATE — GeeksforGeeks</div>
+              <div style="color:var(--muted);font-size:13px">Issued May 2025</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">Learning Android Programming: A Guide for Beginners — GSJ</div>
+              <div style="color:var(--muted);font-size:13px">Issued Mar 2025 · Credential ID 234553</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">User Experience Design – Figma (Udemy)</div>
+              <div style="color:var(--muted);font-size:13px">Issued Feb 2025</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">Complete Figma Course — Udemy</div>
+              <div style="color:var(--muted);font-size:13px">Issued Jan 2025 · ID UC-7f571dfe-509b-479b-adab-475c9d981caf</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">Introduction to Data Science — Cisco</div>
+              <div style="color:var(--muted);font-size:13px">Issued Nov 2024</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">Introduction to IoT — Cisco</div>
+              <div style="color:var(--muted);font-size:13px">Issued Sep 2024</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">Laravel API — MindLuster</div>
+              <div style="color:var(--muted);font-size:13px">Issued Jul 2024 · ID 8099252080</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">IBM RPA – Digital Assistants & Advanced</div>
+              <div style="color:var(--muted);font-size:13px">Issued Jun 2024</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">Microsoft Azure AI Fundamentals — Microsoft India</div>
+              <div style="color:var(--muted);font-size:13px">Issued Jun 2024</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">Residential Electronics Systems Integrator — MindLuster</div>
+              <div style="color:var(--muted);font-size:13px">Issued Jun 2024 · ID 8099259369</div>
+            </div>
+
+            <div class="cert card">
+              <div style="font-weight:700">Website Development — STP Computer Education</div>
+              <div style="color:var(--muted);font-size:13px">Issued Jun 2024 · Credential ID 270609</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="publications">
+        <div class="reveal">
+          <h2>Publications</h2>
+          <div style="margin-top:18px;display:flex;flex-direction:column;gap:10px">
+            <div class="card">
+              <strong>Launching My Simple Blog Website</strong>
+              <div style="color:var(--muted);font-size:13px">Blog · Jan 21, 2025</div>
+              <p style="color:var(--muted);margin-top:8px">A personal blog to share insights and experiences. <a href="https://mp1945638.systeme.io/" style="color:#9fd8f2">Visit</a></p>
+            </div>
+
+            <div class="card">
+              <strong>Guru Kurpa travels — Website Description</strong>
+              <div style="color:var(--muted);font-size:13px">Jun 29, 2024</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="reveal">
+          <h2>Contact</h2>
+          <div style="display:grid;grid-template-columns:1fr 380px;gap:18px;margin-top:18px">
+            <div class="card">
+              <form id="contactForm">
+                <input id="name" placeholder="Your name" required />
+                <input id="email" type="email" placeholder="you@domain.com" required />
+                <textarea id="message" rows="6" placeholder="Tell me about your project" required></textarea>
+                <button type="submit">Send Message</button>
+              </form>
+              <div id="formMsg" style="margin-top:8px;color:var(--muted);font-size:13px"></div>
+            </div>
+
+            <aside class="card">
+<div style="font-weight:700">Contact Info</div>
+<div style="color:var(--muted);margin-top:8px">Vadodara, Gujarat, India</div>
+<div style="color:var(--muted);margin-top:8px">Currently: Intern @ V-Ex Tech Solution</div>
+<div style="margin-top:8px;color:var(--muted)">📞 +91 97235557129</div>
+<div style="margin-top:8px;color:var(--muted)">📧 <a href="mailto:prajapatimohith91@gmail.com" style="color:#9fd8f2">prajapatimohith91@gmail.com</a></div>
+<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+<a class="badge" href="https://www.linkedin.com/in/mohitkprajapati" target="_blank">LinkedIn</a>
+<a class="badge" href="https://github.com/Mohit190405" target="_blank">GitHub</a>
+<a class="badge" href="https://mp1945638.systeme.io/" target="_blank">Blog</a>
+</div>
+</aside>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© MohitKumar Prajapati — Built with ❤️ • Designed for scale</div>
+    </footer>
+  </div>
+
+  <div id="modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:24px;z-index:999">
+    <div style="max-width:880px;width:100%;background:linear-gradient(180deg,rgba(2,6,23,0.9),rgba(4,8,18,0.95));border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03)">
+      <div id="modalContent"></div>
+      <div style="margin-top:12px;text-align:right"><button id="closeModal">Close</button></div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth reveal on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('in-view');
+      });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    // Animate skill bars
+    window.addEventListener('load',()=>{
+      document.querySelectorAll('.bar > i').forEach((el,idx)=>{
+        const w = el.getAttribute('data-width')|| '60%';
+        setTimeout(()=>el.style.width = w, 300+idx*160);
+      });
+    });
+
+    // Project modal
+    document.querySelectorAll('.project').forEach(card=>{
+      card.addEventListener('click',()=>{
+        const data = JSON.parse(card.getAttribute('data-modal'));
+        const modal = document.getElementById('modal');
+        const content = document.getElementById('modalContent');
+        content.innerHTML = `<h3 style=\"margin:0 0 8px\">${data.title}</h3><p style=\"color:var(--muted)\">${data.desc}</p><div style=\"margin-top:10px\"><a href=\"${data.link}\" target=\"_blank\">Open repo / demo</a></div>`;
+        modal.style.display = 'flex';
+      });
+    });
+    document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('modal').style.display='none');
+
+    // Contact form (local simulation)
+    document.getElementById('contactForm').addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name||!email||!message){document.getElementById('formMsg').textContent='Please fill out all fields.';return}
+      document.getElementById('formMsg').textContent = 'Thanks — message queued (simulation). Connect via GitHub / LinkedIn for real-time contact.';
+      e.target.reset();
+    });
+
+    // Theme toggle (simple)
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click',()=>{
+      if(document.documentElement.style.getPropertyValue('--bg') === '#081028'){
+        document.documentElement.style.setProperty('--bg','#f7f9fb');
+        document.documentElement.style.setProperty('--card','#ffffff');
+        document.documentElement.style.setProperty('color-scheme','light');
+        document.documentElement.style.setProperty('--muted','#425066');
+        document.documentElement.style.setProperty('--glass-border','rgba(0,0,0,0.06)');
+        themeToggle.textContent='🌞';
+      } else {
+        document.documentElement.style.setProperty('--bg','#081028');
+        document.documentElement.style.setProperty('--card','#0e1a2a');
+        document.documentElement.style.setProperty('color-scheme','dark');
+        document.documentElement.style.setProperty('--muted','#9aa6b2');
+        document.documentElement.style.setProperty('--glass-border','rgba(255,255,255,0.06)');
+        themeToggle.textContent='🌗';
+      }
+    });
+
+    // Simple hash-scroll behaviour
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',(ev)=>{
+        ev.preventDefault();
+        const id = a.getAttribute('href');
+        if(!id||id==="#") return;
+        document.querySelector(id).scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+
+  </script>
+</body>
+</html>
