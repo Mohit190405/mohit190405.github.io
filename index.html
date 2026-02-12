@@ -1,767 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mohit Kumar Prajapati | Full Stack Portfolio</title>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohit Kumar Prajapati</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-    <style>
-      .section {
-        padding: 100px 20px;
-        max-width: 1100px;
-        margin: auto;
-      }
+<style>
+/* ================= BASE ================= */
+body{
+  background:#020617;
+  color:#e5e7eb;
+  font-family:Inter,system-ui;
+  scroll-behavior:smooth;
+}
 
-      .section-title {
-        font-size: 2.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-        color: #facc15;
-      }
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:6rem 1.5rem;
+}
 
-      .section-text {
-        color: #d1d5db;
-        line-height: 1.7;
-      }
+.section-title{
+  text-align:center;
+  font-size:2.4rem;
+  font-weight:800;
+  color:#facc15;
+  margin-bottom:3rem;
+}
 
-      .nav-link {
-        color: #e5e7eb;
-        transition: color 0.3s;
-      }
-      .nav-link:hover {
-        color: #facc15;
-      }
+/* ================= NAV ================= */
+nav{
+  background:rgba(2,6,23,.85);
+  backdrop-filter:blur(12px);
+}
+nav a{
+  position:relative;
+  font-weight:500;
+}
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:#facc15;
+  transition:.3s;
+}
+nav a:hover::after{width:100%;}
 
-      .hero-bg {
-        background: linear-gradient(120deg, #111827, #1f2933);
-      }
+/* ================= HERO ================= */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(circle at top,#1e293b,#020617),
+    linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9));
+}
 
-      .btn-primary {
-        padding: 12px 30px;
-        background: #facc15;
-        color: black;
-        font-weight: bold;
-        border-radius: 30px;
-        transition: transform 0.3s;
-      }
-      .btn-primary:hover {
-        transform: scale(1.05);
-      }
+/* ================= CARD ================= */
+.card{
+  background:rgba(30,41,59,.9);
+  border-radius:16px;
+  padding:2.2rem;
+  border:1px solid rgba(255,255,255,.06);
+  position:relative;
+  transition:.45s ease;
+}
 
-      .skill-card {
-        background: #111827;
-        padding: 20px;
-        text-align: center;
-        border-radius: 12px;
-        transition: transform 0.3s;
-      }
-      .skill-card:hover {
-        transform: translateY(-5px);
-      }
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 28px 60px rgba(0,0,0,.6);
+}
 
-      .project-card {
-        background: #111827;
-        padding: 25px;
-        margin-bottom: 20px;
-        border-left: 4px solid #facc15;
-        border-radius: 8px;
-      }
+/* ================= FADE ================= */
+.fade-up{
+  opacity:0;
+  transform:translateY(35px);
+  animation:fadeUp 1s ease forwards;
+}
+.delay-1{animation-delay:.25s}
+.delay-2{animation-delay:.45s}
 
-      .skill-box {
-        background: #111827;
-        padding: 20px;
-        border-radius: 12px;
-      }
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0)}
+}
 
-      .skill-box h3 {
-        color: #facc15;
-        margin-bottom: 8px;
-      }
+/* ================= BUTTON ================= */
+.btn{
+  padding:14px 34px;
+  border-radius:999px;
+  font-weight:700;
+  transition:.35s;
+}
+.btn-primary{
+  background:linear-gradient(135deg,#facc15,#fde047);
+  color:#000;
+}
+.btn-primary:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(250,204,21,.4);
+}
+.btn-outline{
+  border:2px solid #facc15;
+  color:#facc15;
+}
+.btn-outline:hover{
+  background:#facc15;
+  color:#000;
+}
 
-      .tech {
-        display: block;
-        margin-top: 8px;
-        color: #9ca3af;
-        font-size: 0.85rem;
-      }
+/* ================= FOOTER ================= */
+footer{
+  background:#020617;
+  padding:2rem;
+  text-align:center;
+  font-size:.9rem;
+  color:#94a3b8;
+}
+</style>
+</head>
 
-      .footer {
-        background: #1f2933;
-        color: #9ca3af;
-        text-align: center;
-        padding: 20px 0;
-        margin-top: 50px;
-      }
+<body>
 
-      .section {
-        padding: 6rem 2rem;
-      }
+<!-- NAV -->
+<nav class="fixed w-full z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+    <h1 class="text-xl font-bold text-yellow-400">Mohit.dev</h1>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Experience</a></li>
+      <li><a href="#services">Services</a></li>
+    </ul>
+  </div>
+</nav>
 
-      .section-title {
-        font-size: 2.2rem;
-        font-weight: 700;
-        margin-bottom: 2rem;
-        text-align: center;
-      }
+<!-- HERO -->
+<section class="hero">
+  <div class="max-w-4xl fade-up">
+    <h2 class="text-5xl font-extrabold text-yellow-400 mb-5">
+      Mohit Kumar Prajapati
+    </h2>
+    <p class="text-lg font-semibold mb-4">
+      Backend Developer • Java & Spring Boot • REST APIs • Full Stack & Mobile Development
+    </p>
+    <p class="text-gray-300 mb-8 leading-relaxed">
+      Computer Science Engineering graduate with strong fundamentals in backend development,
+      data structures, and scalable system design. Focused on building clean,
+      production-ready applications.
+    </p>
+    <div class="flex justify-center gap-6 flex-wrap">
+      <a href="#projects" class="btn btn-primary">View Experience</a>
+      <a href="#services" class="btn btn-outline">Professional Services</a>
+    </div>
+  </div>
+</section>
 
-      .section-text {
-        max-width: 800px;
-        margin: auto;
-        color: #d1d5db;
-        line-height: 1.8;
-      }
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2 class="section-title fade-up">Professional Summary</h2>
+  <p class="max-w-4xl mx-auto text-center fade-up delay-1 leading-relaxed">
+    Entry-level Full Stack Developer with hands-on experience in Java,
+    Spring Boot, MERN Stack, and mobile application development.
+    Experienced in RESTful APIs, role-based authentication,
+    database-driven systems, and workflow-oriented platforms.
+    Currently pursuing B.Tech in Computer Science Engineering
+    and actively preparing for Backend or Full Stack Developer roles.
+  </p>
+</section>
 
-      .nav-link {
-        color: #d1d5db;
-        transition: color 0.3s;
-      }
+<!-- SKILLS -->
+<section id="skills" class="section bg-slate-900">
+  <h2 class="section-title">Technical Expertise</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card fade-up">Java · JavaScript (ES6+) · Python</div>
+    <div class="card fade-up delay-1">Spring Boot · Node.js · Express</div>
+    <div class="card fade-up delay-2">React · React Native · HTML · CSS</div>
+    <div class="card fade-up">MySQL · MongoDB · SQL</div>
+    <div class="card fade-up delay-1">REST APIs · JWT Authentication</div>
+    <div class="card fade-up delay-2">Git · GitHub · Version Control</div>
+  </div>
+</section>
 
-      .nav-link:hover {
-        color: #facc15;
-      }
+<!-- EXPERIENCE -->
+<section id="projects" class="section">
+  <h2 class="section-title">Experience & Projects</h2>
 
-      .btn-primary {
-        background: #facc15;
-        color: #000;
-        padding: 0.6rem 1.5rem;
-        border-radius: 6px;
-        font-weight: 600;
-      }
+  <div class="grid md:grid-cols-2 gap-10">
 
-      .project-card {
-        background: #1f2933;
-        padding: 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      }
-
-      .skill-box {
-        background: #1f2933;
-        padding: 1.2rem;
-        border-radius: 10px;
-      }
-
-      .tech {
-        font-size: 0.85rem;
-        color: #9ca3af;
-      }
-      .skill-box h3 {
-        color: #facc15;
-        margin-bottom: 0.5rem;
-      }
-
-      .footer {
-        background: #111827;
-        color: #9ca3af;
-        padding: 1.5rem 0;
-        font-size: 0.9rem;
-      }
-      .footer a {
-        color: #facc15;
-        text-decoration: none;
-      }
-
-      .service-card {
-        background: #1f2933;
-        padding: 1.6rem;
-        border-radius: 14px;
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .service-card h3 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-bottom: 0.6rem;
-        color: #facc15;
-      }
-
-      .service-card p {
-        color: #d1d5db;
-        line-height: 1.6;
-        font-size: 0.95rem;
-      }
-
-      .service-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
-      }
-      .service-icon {
-        font-size: 2.5rem;
-        color: #facc15;
-        margin-bottom: 1rem;
-      }
-
-      /* ===== BUTTONS ===== */
-      .btn-primary {
-        display: inline-block;
-        background: #facc15; /* yellow */
-        color: #000;
-        padding: 12px 26px;
-        border-radius: 999px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        transition: all 0.3s ease;
-      }
-
-      .btn-primary:hover {
-        background: #fde047;
-        transform: translateY(-2px);
-      }
-
-      .btn-secondary {
-        display: inline-block;
-        background: #1f2933;
-        color: #facc15;
-        padding: 12px 26px;
-        border-radius: 999px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        border: 1px solid #facc15;
-        transition: all 0.3s ease;
-      }
-
-      .btn-secondary:hover {
-        background: #000;
-        transform: translateY(-2px);
-      }
-
-      .btn-outline {
-        display: inline-block;
-        background: transparent;
-        color: #e5e7eb;
-        padding: 12px 26px;
-        border-radius: 999px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        border: 1px solid #6b7280;
-        transition: all 0.3s ease;
-      }
-
-      .btn-outline:hover {
-        border-color: #facc15;
-        color: #facc15;
-        transform: translateY(-2px);
-      }
-      @keyframes pulseScale {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-      }
-
-      .hero-bg {
-        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-          url("hero.jpg"); /* ya jo bhi bg ho */
-        background-size: cover;
-        background-position: center;
-      }
-      .hero-content h1 {
-        font-size: 3rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        color: #facc15;
-      }
-
-      .project-link {
-        display: inline-block;
-        margin-top: 10px;
-        font-size: 0.9rem;
-        color: #facc15;
-        font-weight: 600;
-        transition: color 0.3s ease;
-      }
-
-      .project-link:hover {
-        color: #fde047;
-      }
-      .skill-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-      }
-
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(40px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .animate-fade-up {
-        animation: fadeUp 1.2s ease-out forwards;
-      }
-
-      @keyframes slideLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-60px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes slideRight {
-        from {
-          opacity: 0;
-          transform: translateX(60px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      .animate-slide-left {
-        animation: slideLeft 1s ease-out forwards;
-      }
-
-      .animate-slide-right {
-        animation: slideRight 1s ease-out forwards;
-      }
-
-      @keyframes pulseScale {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-      }
-
-      .animate-pulse {
-        animation: pulseScale 2s ease-in-out infinite;
-      }
-    </style>
-  </head>
-
-  <body class="bg-gray-900 text-white">
-    <!-- NAVBAR -->
-    <nav class="fixed w-full bg-black/80 z-50">
-      <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-        <h1 class="text-xl font-bold text-yellow-400">Mohit.dev</h1>
-        <ul class="flex gap-6 text-sm">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#leetcode" class="nav-link">DSA</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#certs" class="nav-link">Certifications</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- HERO -->
-    <section
-      class="h-screen flex items-center justify-center hero-bg text-center"
-    >
-      <div class="animate-fade-up max-w-3xl px-4">
-        <h2 class="text-5xl font-bold mb-4">Mohit Kumar Prajapati</h2>
-
-        <h3 class="text-xl text-yellow-400 font-semibold mb-3">
-          Full Stack Developer • Backend-Oriented
-        </h3>
-
-        <p class="text-gray-300 mb-6 leading-relaxed">
-          Computer Science Engineering student and Full Stack Developer with
-          hands-on experience in MERN Stack, Java Spring Boot, and React Native.
-          Strong foundation in Data Structures & Algorithms with consistent
-          LeetCode practice. Passionate about building scalable,
-          enterprise-grade applications and practical digital solutions.
-        </p>
-
-        <div class="flex justify-center gap-4 flex-wrap">
-          <a href="#projects" class="btn-primary"> View Projects </a>
-
-          <a
-            href="https://leetcode.com/mohit_dev-2005/"
-            target="_blank"
-            class="btn-secondary"
-          >
-            LeetCode Profile
-          </a>
-
-          <a href="#services" class="btn-outline"> My Services </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <h2 class="section-title">About Me</h2>
-      <p class="section-text">
-        Entry-level Full Stack Developer with strong fundamentals in Data
-        Structures & Algorithms and hands-on experience in MERN Stack and Java
-        backend development. Skilled in building structured, scalable
-        applications using React, Node.js, Express, and Spring Boot with SQL and
-        MongoDB databases. Worked on enterprise-oriented projects involving
-        RESTful APIs, role-based systems, assessments, and workflow-driven
-        platforms. Currently pursuing B.Tech in Computer Science Engineering and
-        preparing for Full Stack or Backend Developer roles.
+    <!-- COLLEGE -->
+    <div class="card fade-up border-l-4 border-yellow-400">
+      <h3 class="text-xl font-bold text-yellow-400 mb-2">
+        Academic Projects — Computer Science Engineering
+      </h3>
+      <p class="text-sm text-gray-400 mb-4">
+        Nov 2023 – Mar 2025
       </p>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section bg-gray-800">
-      <h2 class="section-title">Technical Skills</h2>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="skill-box">
-          <h3>Backend</h3>
-          <p>Core Java, Spring Boot, Node.js, REST APIs, JWT, Microservices</p>
-        </div>
-
-        <div class="skill-box">
-          <h3>Frontend</h3>
-          <p>
-            React.js, React Native, HTML5, CSS3, JavaScript (ES6+), Tailwind
-          </p>
-        </div>
-
-        <div class="skill-box">
-          <h3>Database</h3>
-          <p>MySQL, PostgreSQL, MongoDB</p>
-        </div>
-
-        <div class="skill-box">
-          <h3>Computer Science</h3>
-          <p>DSA, OOP, System Design Fundamentals, Problem Solving</p>
-        </div>
-
-        <div class="skill-box">
-          <h3>Tools</h3>
-          <p>Git, GitHub, Firebase, Figma</p>
-        </div>
-
-        <div class="skill-box">
-          <h3>Languages</h3>
-          <p>Java, JavaScript, TypeScript, Python, C++</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <h2 class="section-title">Projects</h2>
-
-      <!-- Life Sphere -->
-      <div class="project-card">
-        <h3>Life Sphere – Urban Super App</h3>
-        <p>
-          Enterprise-level MERN application designed to integrate personal life
-          management and smart city services into a unified platform. Supports
-          multiple user roles (Admin, Citizen, Student, Business, Service
-          Provider) with secure authentication, RBAC-based dashboards, service
-          workflows, and centralized analytics. Built with scalability and
-          future expansion (AI, IoT, mobile) in mind.
-        </p>
-        <span class="tech">
-          MongoDB • Express.js • React.js • Node.js • REST APIs • RBAC
-        </span>
-        <a
-          href="https://github.com/Mohit190405"
-          target="_blank"
-          class="project-link"
-        >
-          View on GitHub
-        </a>
-      </div>
-
-      <!-- Smart Campus -->
-      <div class="project-card">
-        <h3>Smart Campus Management & E-Commerce Platform</h3>
-        <p>
-          Full-stack, microservices-based platform integrating academic
-          management and e-commerce operations. Features include JWT-based
-          authentication, student and faculty management, inventory & library
-          workflows, quizzes, real-time communication, and online product
-          ordering. Core CS concepts like scheduling, networking, and compiler
-          basics are applied in practice.
-        </p>
-        <span class="tech">
-          Java • Spring Boot • React.js • MySQL • MongoDB • JWT • Microservices
-        </span>
-        <a
-          href="https://github.com/Mohit190405"
-          target="_blank"
-          class="project-link"
-        >
-          View on GitHub
-        </a>
-      </div>
-
-      <!-- V-Ex Smart Clothing -->
-      <div class="project-card">
-        <h3>V-Ex Smart Clothing App</h3>
-        <p>
-          Cross-platform e-commerce mobile application developed using React
-          Native for smart clothing products. Includes authentication, product
-          browsing, cart management, secure checkout, order tracking, and
-          Firebase-powered real-time features. Focused on performance,
-          scalability, and clean UI.
-        </p>
-        <span class="tech">
-          React Native • Firebase • REST APIs • Payment Integration
-        </span>
-        <a
-          href="https://github.com/Mohit190405/vhx-Android"
-          target="_blank"
-          class="project-link"
-        >
-          View on GitHub
-        </a>
-      </div>
-
-      <!-- Farmer Assistant -->
-      <div class="project-card">
-        <h3>Farmer’s Assistant (Android Application)</h3>
-        <p>
-          Android-based application built to support farmers with real-time
-          weather updates, crop guidance, pest control information, and market
-          price insights. Designed to improve agricultural productivity using a
-          simple and accessible mobile interface.
-        </p>
-        <span class="tech"> Core Java • Android SDK • API Integration </span>
-        <a
-          href="https://github.com/Mohit190405/SmartFarmApp"
-          target="_blank"
-          class="project-link"
-        >
-          View on GitHub
-        </a>
-      </div>
-
-      <!-- Restaurant Booking -->
-      <div class="project-card">
-        <h3>Online Restaurant Booking App</h3>
-        <p>
-          Mobile application enabling users to browse restaurants, book tables,
-          and manage reservations. Integrated Firebase authentication, real-time
-          database, and payment workflows with a responsive React Native UI.
-        </p>
-        <span class="tech"> React Native • Firebase • REST APIs </span>
-        <a
-          href="https://github.com/Mohit190405/food-app"
-          target="_blank"
-          class="project-link"
-        >
-          View on GitHub
-        </a>
-      </div>
-
-      <!-- College Management -->
-      <div class="project-card">
-        <h3>College Management System (CMS)</h3>
-        <p>
-          Web-based academic administration system for managing students,
-          faculty, attendance, grades, courses, and financial records. Provides
-          a centralized platform for administrators, teachers, and students to
-          streamline institutional workflows.
-        </p>
-        <span class="tech">
-          HTML5 • CSS3 • JavaScript (ES6+) • SQL (MySQL/PostgreSQL)
-        </span>
-        <a
-          href="https://github.com/Mohit190405/College-Management-System"
-          target="_blank"
-          class="project-link"
-        >
-          View on GitHub
-        </a>
-      </div>
-    </section>
-
-    <!-- LEETCODE / DSA (DETAILED) -->
-    <section id="leetcode" class="section bg-gray-800">
-      <h2 class="section-title text-center">Data Structures & Algorithms</h2>
-
-      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-        <div class="project-card animate-slide-left">
-          <h3>LeetCode Profile</h3>
-          <p class="mb-2">
-            Consistent problem-solving practice with focus on core CS
-            fundamentals.
-          </p>
-
-          <ul class="list-disc pl-5 text-gray-300 leading-7">
-            <li><strong>Problems Solved:</strong> 134+</li>
-            <li><strong>Easy / Medium / Hard:</strong> 41 / 74 / 19</li>
-            <li><strong>Acceptance Rate:</strong> ~75%</li>
-            <li><strong>Active Days:</strong> 110+</li>
-            <li><strong>Max Streak:</strong> 28 Days</li>
-            <li><strong>Badges:</strong> 50 Days, 100 Days</li>
-          </ul>
-
-          <a
-            href="https://leetcode.com/mohit_dev-2005/"
-            target="_blank"
-            class="btn-primary mt-4 inline-block"
-          >
-            View LeetCode Profile
-          </a>
-        </div>
-
-        <div class="project-card animate-slide-right">
-          <h3>Problem Solving Strength</h3>
-          <ul class="list-disc pl-5 text-gray-300 leading-7">
-            <li>Arrays, Strings, Sorting</li>
-            <li>Hash Tables & Greedy</li>
-            <li>Dynamic Programming</li>
-            <li>Trees & Graphs</li>
-            <li>Backtracking & Recursion</li>
-          </ul>
-          <p class="mt-4 text-gray-400 text-sm">Languages: C++, Java</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="section">
-      <h2 class="section-title">Services</h2>
-
-      <p class="section-text text-center mb-10">
-        I provide practical, reliable, and affordable development services with
-        a strong focus on clean code, learning-driven improvement, and
-        real-world usability.
-      </p>
-
-      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <div class="service-card animate-fade-up">
-          <h3>Mobile Application Development</h3>
-          <p>
-            Android & cross-platform mobile applications using React Native and
-            Firebase, focused on performance and scalability.
-          </p>
-        </div>
-
-        <div class="service-card animate-fade-up">
-          <h3>Web Development</h3>
-          <p>
-            Responsive and modern web applications using React, JavaScript, REST
-            APIs, and backend integration.
-          </p>
-        </div>
-
-        <div class="service-card animate-fade-up">
-          <h3>Backend & Database Development</h3>
-          <p>
-            Secure backend systems with Java Spring Boot, Node.js, MySQL,
-            PostgreSQL, and MongoDB.
-          </p>
-        </div>
-
-        <div class="service-card animate-fade-up">
-          <h3>Software Testing</h3>
-          <p>
-            Functional testing, API testing, and debugging to ensure application
-            reliability and performance.
-          </p>
-        </div>
-
-        <div class="service-card animate-fade-up">
-          <h3>UI / UX Design</h3>
-          <p>
-            Clean, user-friendly interfaces designed with usability,
-            accessibility, and consistency in mind.
-          </p>
-        </div>
-
-        <div class="service-card animate-fade-up">
-          <h3>Project Support & Management</h3>
-          <p>
-            Academic and small-business project support, documentation,
-            planning, and structured execution.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section">
-      <h2 class="section-title">Experience</h2>
-
-      <div class="project-card">
-        <h3>React Native Developer – V-Ex Tech Solution</h3>
-        <p>
-          Developed and maintained production-level cross-platform e-commerce
-          apps. Worked with REST APIs, Firebase Auth, Realtime DB, and Cloud
-          Messaging.
-        </p>
-        <span class="tech">Jul 2024 – Oct 2025</span>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="section bg-gray-800">
-      <h2 class="section-title">Education</h2>
-
-      <p><strong>B.Tech – Computer Science Engineering</strong> (2025–2028)</p>
-      <p>Parul Institute of Engineering & Technology</p>
-
-      <br />
-
-      <p><strong>Diploma – Computer Engineering</strong> (2022–2025)</p>
-      <p>Parul University • CGPA: 7.57</p>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certs" class="section">
-      <h2 class="section-title">Certifications</h2>
-
-      <ul class="list-disc pl-6 text-gray-300 leading-7">
-        <li>Python (Basic) – HackerRank</li>
-        <li>Google – Introduction to Generative AI Studio</li>
-        <li>Microsoft Azure AI Fundamentals</li>
-        <li>IBM RPA – Advanced</li>
-        <li>Cisco – Data Science & IoT</li>
-        <li>Research Paper: Learning Android Programming</li>
-        <li>Udemy – UI/UX & Figma</li>
+      <ul class="list-disc list-inside space-y-3 leading-relaxed">
+        <li>
+          <strong>Farmer’s Assistant (Android)</strong> — Agricultural support
+          application providing weather insights, crop guidance,
+          pest management and market pricing.
+        </li>
+        <li>
+          <strong>College Management System (CMS)</strong> — Web-based system
+          handling student enrollment, attendance, grading,
+          and academic workflows.
+        </li>
       </ul>
-    </section>
+      <p class="text-sm text-gray-400 mt-4">
+        Tech Stack: Java · Spring Boot · JWT · MySQL · HTML · CSS · Git
+      </p>
+    </div>
 
-    <footer class="text-center text-gray-400 p-4">
-      © 2026 Mohit Kumar Prajapati — Built with discipline, not shortcuts.
-    </footer>
+    <!-- INTERNSHIP -->
+    <div class="card fade-up delay-1 border-l-4 border-cyan-400">
+      <h3 class="text-xl font-bold text-cyan-400 mb-2">
+        Internship Projects — React Native Applications
+      </h3>
+      <p class="text-sm text-gray-400 mb-4">
+        Jul 2024 – Jun 2025 · Vadodara
+      </p>
+      <ul class="list-disc list-inside space-y-3 leading-relaxed">
+        <li>
+          <strong>Smart Clothing Application</strong> — Mobile app integrating
+          wearable technology with real-time data handling.
+        </li>
+        <li>
+          <strong>Online Restaurant Booking System</strong> — Full-stack
+          application for restaurant discovery, reservations,
+          and backend services.
+        </li>
+      </ul>
+      <p class="text-sm text-gray-400 mt-4">
+        Tech Stack: JavaScript · Node.js · Express · MongoDB · CSS · Git
+      </p>
+    </div>
 
-    <script>
-      // Traditional smooth scroll (safe & reliable)
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          const targetId = this.getAttribute("href");
+  </div>
+</section>
 
-          if (targetId.length > 1) {
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              e.preventDefault();
-              targetElement.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        });
-      });
+<!-- SERVICES -->
+<section id="services" class="section bg-slate-900">
+  <h2 class="section-title">Professional Services</h2>
 
-      // Clean load confirmation (no UI noise)
-      console.log("Portfolio loaded cleanly.");
+  <p class="text-center max-w-3xl mx-auto mb-12 fade-up leading-relaxed">
+    Providing reliable development services with a strong focus on
+    clean code, structured architecture, and practical implementation.
+  </p>
 
-      // Global error handler (log errors without alerting users)
-      window.addEventListener("error", function (e) {
-        console.error("Error occurred: ", e.message);
-      });
-    </script>
-  </body>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card fade-up">Mobile Application Development</div>
+    <div class="card fade-up delay-1">Full Stack Web Development</div>
+    <div class="card fade-up delay-2">Backend & Database Design</div>
+    <div class="card fade-up">Software Testing & Debugging</div>
+    <div class="card fade-up delay-1">UI / UX Implementation</div>
+    <div class="card fade-up delay-2">Academic & Technical Project Support</div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Mohit Kumar Prajapati • Built with discipline, structure & clarity
+</footer>
+
+<script>
+console.log("Professional refined portfolio loaded.");
+</script>
+
+</body>
 </html>
