@@ -8,7 +8,6 @@
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
 <style>
-/* ================= BASE ================= */
 body{
   background:#020617;
   color:#e5e7eb;
@@ -30,7 +29,6 @@ body{
   margin-bottom:3rem;
 }
 
-/* ================= NAV ================= */
 nav{
   background:rgba(2,6,23,.85);
   backdrop-filter:blur(12px);
@@ -51,7 +49,6 @@ nav a::after{
 }
 nav a:hover::after{width:100%;}
 
-/* ================= HERO ================= */
 .hero{
   min-height:100vh;
   display:flex;
@@ -63,22 +60,18 @@ nav a:hover::after{width:100%;}
     linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9));
 }
 
-/* ================= CARD ================= */
 .card{
   background:rgba(30,41,59,.9);
   border-radius:16px;
   padding:2.2rem;
   border:1px solid rgba(255,255,255,.06);
-  position:relative;
   transition:.45s ease;
 }
-
 .card:hover{
   transform:translateY(-10px);
   box-shadow:0 28px 60px rgba(0,0,0,.6);
 }
 
-/* ================= FADE ================= */
 .fade-up{
   opacity:0;
   transform:translateY(35px);
@@ -91,7 +84,6 @@ nav a:hover::after{width:100%;}
   to{opacity:1;transform:translateY(0)}
 }
 
-/* ================= BUTTON ================= */
 .btn{
   padding:14px 34px;
   border-radius:999px;
@@ -102,20 +94,11 @@ nav a:hover::after{width:100%;}
   background:linear-gradient(135deg,#facc15,#fde047);
   color:#000;
 }
-.btn-primary:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 28px rgba(250,204,21,.4);
-}
 .btn-outline{
   border:2px solid #facc15;
   color:#facc15;
 }
-.btn-outline:hover{
-  background:#facc15;
-  color:#000;
-}
 
-/* ================= FOOTER ================= */
 footer{
   background:#020617;
   padding:2rem;
@@ -135,7 +118,7 @@ footer{
     <ul class="flex gap-6 text-sm">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Experience</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#services">Services</a></li>
     </ul>
   </div>
@@ -148,15 +131,14 @@ footer{
       Mohit Kumar Prajapati
     </h2>
     <p class="text-lg font-semibold mb-4">
-      Backend Developer • Java & Spring Boot • REST APIs • Full Stack & Mobile Development
+      React Native Developer • Backend & Full Stack Development
     </p>
     <p class="text-gray-300 mb-8 leading-relaxed">
-      Computer Science Engineering graduate with strong fundamentals in backend development,
-      data structures, and scalable system design. Focused on building clean,
-      production-ready applications.
+      Computer Science Engineering graduate with strong foundations in
+      backend systems, mobile application development, and scalable architectures.
     </p>
     <div class="flex justify-center gap-6 flex-wrap">
-      <a href="#projects" class="btn btn-primary">View Experience</a>
+      <a href="#experience" class="btn btn-primary">View Experience</a>
       <a href="#services" class="btn btn-outline">Professional Services</a>
     </div>
   </div>
@@ -166,12 +148,10 @@ footer{
 <section id="about" class="section">
   <h2 class="section-title fade-up">Professional Summary</h2>
   <p class="max-w-4xl mx-auto text-center fade-up delay-1 leading-relaxed">
-    Entry-level Full Stack Developer with hands-on experience in Java,
-    Spring Boot, MERN Stack, and mobile application development.
-    Experienced in RESTful APIs, role-based authentication,
-    database-driven systems, and workflow-oriented platforms.
-    Currently pursuing B.Tech in Computer Science Engineering
-    and actively preparing for Backend or Full Stack Developer roles.
+    Entry-level Full Stack and Mobile Developer with hands-on experience
+    in React Native, Java, Spring Boot, MERN stack, and RESTful APIs.
+    Experienced in production-level mobile apps, database-driven systems,
+    and real-world workflows.
   </p>
 </section>
 
@@ -215,58 +195,60 @@ footer{
 
 
 <!-- EXPERIENCE -->
-<section id="projects" class="section">
+<section id="experience" class="section">
   <h2 class="section-title">Experience & Projects</h2>
 
   <div class="grid md:grid-cols-2 gap-10">
 
-    <!-- COLLEGE -->
+    <!-- WORK -->
     <div class="card fade-up border-l-4 border-yellow-400">
       <h3 class="text-xl font-bold text-yellow-400 mb-2">
-        Academic Projects — Computer Science Engineering
+        React Native Developer — V-Ex Tech Solution
       </h3>
       <p class="text-sm text-gray-400 mb-4">
-        Nov 2023 – Mar 2025
+        Jul 2024 – Oct 2025 · Vadodara · Hybrid
       </p>
-      <ul class="list-disc list-inside space-y-3 leading-relaxed">
-        <li>
-          <strong>Farmer’s Assistant (Android)</strong> — Agricultural support
-          application providing weather insights, crop guidance,
-          pest management and market pricing.
-        </li>
-        <li>
-          <strong>College Management System (CMS)</strong> — Web-based system
-          handling student enrollment, attendance, grading,
-          and academic workflows.
-        </li>
+      <ul class="list-disc list-inside space-y-3">
+        <li>Developed cross-platform E-commerce mobile apps for Android & iOS.</li>
+        <li>Converted Figma designs into responsive React Native UI.</li>
+        <li>Integrated REST APIs for products, cart, orders, and payments.</li>
+        <li>Implemented Firebase Authentication, Database & Notifications.</li>
+        <li>Continued as freelance contributor after internship.</li>
       </ul>
-      <p class="text-sm text-gray-400 mt-4">
-        Tech Stack: Java · Spring Boot · JWT · MySQL · HTML · CSS · Git
-      </p>
     </div>
 
-    <!-- INTERNSHIP -->
+    <!-- INTERNSHIP PROJECTS -->
     <div class="card fade-up delay-1 border-l-4 border-cyan-400">
       <h3 class="text-xl font-bold text-cyan-400 mb-2">
-        Internship Projects — React Native Applications
+        Internship Projects
       </h3>
-      <p class="text-sm text-gray-400 mb-4">
-        Jul 2024 – Jun 2025 · Vadodara
-      </p>
-      <ul class="list-disc list-inside space-y-3 leading-relaxed">
+      <ul class="list-disc list-inside space-y-3">
         <li>
-          <strong>Smart Clothing Application</strong> — Mobile app integrating
-          wearable technology with real-time data handling.
+          <strong>Online Restaurant Booking App</strong> —
+          Mobile app for restaurant discovery, reservations, and payments.
         </li>
         <li>
-          <strong>Online Restaurant Booking System</strong> — Full-stack
-          application for restaurant discovery, reservations,
-          and backend services.
+          <strong>Smart Clothing Application</strong> —
+          Wearable-integrated mobile solution with real-time data handling.
         </li>
       </ul>
-      <p class="text-sm text-gray-400 mt-4">
-        Tech Stack: JavaScript · Node.js · Express · MongoDB · CSS · Git
-      </p>
+    </div>
+
+    <!-- COLLEGE PROJECTS -->
+    <div class="card fade-up border-l-4 border-green-400">
+      <h3 class="text-xl font-bold text-green-400 mb-2">
+        Academic Projects
+      </h3>
+      <ul class="list-disc list-inside space-y-3">
+        <li>
+          <strong>College Management System</strong> —
+          Student records, attendance, grading & admin workflows.
+        </li>
+        <li>
+          <strong>Android Farmer Application</strong> —
+          Crop guidance, weather updates & market pricing.
+        </li>
+      </ul>
     </div>
 
   </div>
@@ -276,29 +258,17 @@ footer{
 <section id="services" class="section bg-slate-900">
   <h2 class="section-title">Professional Services</h2>
 
-  <p class="text-center max-w-3xl mx-auto mb-12 fade-up leading-relaxed">
-    Providing reliable development services with a strong focus on
-    clean code, structured architecture, and practical implementation.
-  </p>
-
   <div class="grid md:grid-cols-3 gap-6">
-    <div class="card fade-up">Mobile Application Development</div>
-    <div class="card fade-up delay-1">Full Stack Web Development</div>
-    <div class="card fade-up delay-2">Backend & Database Design</div>
-    <div class="card fade-up">Software Testing & Debugging</div>
-    <div class="card fade-up delay-1">UI / UX Implementation</div>
-    <div class="card fade-up delay-2">Academic & Technical Project Support</div>
+    <div class="card fade-up">Mobile App Development</div>
+    <div class="card fade-up delay-1">Website Development</div>
+    <div class="card fade-up">Web App Development</div>
+    <div class="card fade-up delay-2">Graphic Designing</div>
   </div>
 </section>
 
 <footer>
-  © 2026 Mohit Kumar Prajapati • Built with discipline, structure & clarity
+  © 2026 Mohit Kumar Prajapati • Built with discipline & clarity
 </footer>
-
-<script>
-console.log("Professional refined portfolio loaded.");
-</script>
 
 </body>
 </html>
-
