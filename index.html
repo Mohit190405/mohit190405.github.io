@@ -1,274 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohit Kumar Prajapati</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohit Kumar Prajapati</title>
 
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-<style>
-body{
-  background:#020617;
-  color:#e5e7eb;
-  font-family:Inter,system-ui;
-  scroll-behavior:smooth;
-}
+  <style>
+    body {
+      background: #020617;
+      color: #e5e7eb;
+      font-family: Inter, system-ui;
+      scroll-behavior: smooth;
+    }
 
-.section{
-  max-width:1200px;
-  margin:auto;
-  padding:6rem 1.5rem;
-}
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 6rem 1.5rem;
+    }
 
-.section-title{
-  text-align:center;
-  font-size:2.4rem;
-  font-weight:800;
-  color:#facc15;
-  margin-bottom:3rem;
-}
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #facc15;
+      margin-bottom: 3rem;
+    }
 
-nav{
-  background:rgba(2,6,23,.85);
-  backdrop-filter:blur(12px);
-}
-nav a{
-  position:relative;
-  font-weight:500;
-}
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:2px;
-  background:#facc15;
-  transition:.3s;
-}
-nav a:hover::after{width:100%;}
+    nav {
+      background: rgba(2, 6, 23, .85);
+      backdrop-filter: blur(12px);
+    }
 
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:
-    radial-gradient(circle at top,#1e293b,#020617),
-    linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9));
-}
+    nav a {
+      position: relative;
+      font-weight: 500;
+    }
 
-.card{
-  background:rgba(30,41,59,.9);
-  border-radius:16px;
-  padding:2.2rem;
-  border:1px solid rgba(255,255,255,.06);
-  transition:.45s ease;
-}
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 28px 60px rgba(0,0,0,.6);
-}
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #facc15;
+      transition: .3s;
+    }
 
-.fade-up{
-  opacity:0;
-  transform:translateY(35px);
-  animation:fadeUp 1s ease forwards;
-}
-.delay-1{animation-delay:.25s}
-.delay-2{animation-delay:.45s}
+    nav a:hover::after {
+      width: 100%;
+    }
 
-@keyframes fadeUp{
-  to{opacity:1;transform:translateY(0)}
-}
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at top, #1e293b, #020617),
+        linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9));
+    }
 
-.btn{
-  padding:14px 34px;
-  border-radius:999px;
-  font-weight:700;
-  transition:.35s;
-}
-.btn-primary{
-  background:linear-gradient(135deg,#facc15,#fde047);
-  color:#000;
-}
-.btn-outline{
-  border:2px solid #facc15;
-  color:#facc15;
-}
+    .card {
+      background: rgba(30, 41, 59, .9);
+      border-radius: 16px;
+      padding: 2.2rem;
+      border: 1px solid rgba(255, 255, 255, .06);
+      transition: .45s ease;
+    }
 
-footer{
-  background:#020617;
-  padding:2rem;
-  text-align:center;
-  font-size:.9rem;
-  color:#94a3b8;
-}
-</style>
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, .6);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(35px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .delay-1 {
+      animation-delay: .25s
+    }
+
+    .delay-2 {
+      animation-delay: .45s
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .btn {
+      padding: 14px 34px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: .35s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #facc15, #fde047);
+      color: #000;
+    }
+
+    .btn-outline {
+      border: 2px solid #facc15;
+      color: #facc15;
+    }
+
+    footer {
+      background: #020617;
+      padding: 2rem;
+      text-align: center;
+      font-size: .9rem;
+      color: #94a3b8;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="fixed w-full z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-    <h1 class="text-xl font-bold text-yellow-400">Mohit.dev</h1>
-    <ul class="flex gap-6 text-sm">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#services">Services</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="max-w-4xl fade-up">
-    <h2 class="text-5xl font-extrabold text-yellow-400 mb-5">
-      Mohit Kumar Prajapati
-    </h2>
-    <p class="text-lg font-semibold mb-4">
-      React Native Developer • Backend & Full Stack Development
-    </p>
-    <p class="text-gray-300 mb-8 leading-relaxed">
-      Computer Science Engineering graduate with strong foundations in
-      backend systems, mobile application development, and scalable architectures.
-    </p>
-    <div class="flex justify-center gap-6 flex-wrap">
-      <a href="#experience" class="btn btn-primary">View Experience</a>
-      <a href="#services" class="btn btn-outline">Professional Services</a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-  <h2 class="section-title fade-up">Professional Summary</h2>
-  <p class="max-w-4xl mx-auto text-center fade-up delay-1 leading-relaxed">
-    Entry-level Full Stack and Mobile Developer with hands-on experience
-    in React Native, Java, Spring Boot, MERN stack, and RESTful APIs.
-    Experienced in production-level mobile apps, database-driven systems,
-    and real-world workflows.
-  </p>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="section bg-slate-900">
-  <h2 class="section-title">Skills</h2>
-
-  <div class="grid md:grid-cols-2 gap-6">
-
-    <!-- Industry Knowledge -->
-    <div class="card fade-up">
-      <h3 class="text-xl font-semibold mb-4 text-white">Industry Knowledge</h3>
-      <ul class="list-disc list-inside text-slate-300 space-y-2">
-        <li>Object-Oriented Programming (OOP)</li>
-        <li>Data Structures</li>
-        <li>Express.js</li>
+  <nav class="fixed w-full z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-xl font-bold text-yellow-400">Mohit.dev</h1>
+      <ul class="flex gap-6 text-sm">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Projects</a></li>
+        <li><a href="#services">Services</a></li>
       </ul>
     </div>
+  </nav>
 
-    <!-- Tools & Technologies -->
-    <div class="card fade-up delay-1">
-      <h3 class="text-xl font-semibold mb-4 text-white">Tools &amp; Technologies</h3>
-      <ul class="list-disc list-inside text-slate-300 space-y-2">
-        <li>Git</li>
-        <li>GitHub</li>
-        <li>HTML5</li>
-        <li>CSS</li>
-        <li>React.js</li>
-        <li>Node.js</li>
-        <li>Spring Boot</li>
-        <li>MongoDB</li>
-        <li>MySQL</li>
-        <li>SQL</li>
-        <li>Java</li>
-        <li>Python</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- EXPERIENCE -->
-<section id="experience" class="section">
-  <h2 class="section-title">Experience & Projects</h2>
-
-  <div class="grid md:grid-cols-2 gap-10">
-
-    <!-- WORK -->
-    <div class="card fade-up border-l-4 border-yellow-400">
-      <h3 class="text-xl font-bold text-yellow-400 mb-2">
-        React Native Developer — V-Ex Tech Solution
-      </h3>
-      <p class="text-sm text-gray-400 mb-4">
-        Jul 2024 – Oct 2025 · Vadodara · Hybrid
+  <section class="hero">
+    <div class="max-w-4xl fade-up">
+      <h2 class="text-5xl font-extrabold text-yellow-400 mb-5">
+        Mohit Kumar Prajapati
+      </h2>
+      <p class="text-lg font-semibold mb-4">
+        Backend Developer | Java • Spring Boot • REST APIs • SQL
       </p>
-      <ul class="list-disc list-inside space-y-3">
-        <li>Developed cross-platform E-commerce mobile apps for Android & iOS.</li>
-        <li>Converted Figma designs into responsive React Native UI.</li>
-        <li>Integrated REST APIs for products, cart, orders, and payments.</li>
-        <li>Implemented Firebase Authentication, Database & Notifications.</li>
-        <li>Continued as freelance contributor after internship.</li>
-      </ul>
+      <p class="text-gray-300 mb-8 leading-relaxed">
+        Computer Science Engineering student focused on backend systems,
+        scalable APIs, database-driven applications, and practical full-stack development.
+      </p>
+      <div class="flex justify-center gap-6 flex-wrap">
+        <a href="#experience" class="btn btn-primary">View Projects</a>
+        <a href="#services" class="btn btn-outline">Services</a>
+      </div>
     </div>
+  </section>
 
-    <!-- INTERNSHIP PROJECTS -->
-    <div class="card fade-up delay-1 border-l-4 border-cyan-400">
-      <h3 class="text-xl font-bold text-cyan-400 mb-2">
-        Internship Projects
-      </h3>
-      <ul class="list-disc list-inside space-y-3">
-        <li>
-          <strong>Online Restaurant Booking App</strong> —
-          Mobile app for restaurant discovery, reservations, and payments.
-        </li>
-        <li>
-          <strong>Smart Clothing Application</strong> —
-          Wearable-integrated mobile solution with real-time data handling.
-        </li>
-      </ul>
+  <section id="about" class="section">
+    <h2 class="section-title fade-up">Professional Summary</h2>
+    <p class="max-w-4xl mx-auto text-center fade-up delay-1 leading-relaxed">
+      Fresher in Computer Science with hands-on project experience in backend,
+      mobile, and web development using Java, Spring Boot, React Native,
+      Node.js, MongoDB, and MySQL. Built practical systems across agriculture,
+      education, and commerce with strong focus on clean code and real-world execution.
+    </p>
+  </section>
+
+  <section id="skills" class="section bg-slate-900">
+    <h2 class="section-title">Core Skills</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <div class="card fade-up">
+        <h3 class="text-xl font-semibold mb-4 text-white">Backend & Core Engineering</h3>
+        <ul class="list-disc list-inside text-slate-300 space-y-2">
+          <li>Java</li>
+          <li>Spring Boot</li>
+          <li>SQL</li>
+          <li>REST APIs</li>
+          <li>Data Structures</li>
+          <li>Object-Oriented Programming</li>
+          <li>JWT Authentication</li>
+        </ul>
+      </div>
+
+      <div class="card fade-up delay-1">
+        <h3 class="text-xl font-semibold mb-4 text-white">Tools & Technologies</h3>
+        <ul class="list-disc list-inside text-slate-300 space-y-2">
+          <li>MongoDB</li>
+          <li>MySQL</li>
+          <li>Node.js</li>
+          <li>Express.js</li>
+          <li>React Native</li>
+          <li>Git</li>
+          <li>GitHub</li>
+          <li>JavaScript (ES6+)</li>
+          <li>Python</li>
+        </ul>
+      </div>
+
     </div>
+  </section>
 
-    <!-- COLLEGE PROJECTS -->
-    <div class="card fade-up border-l-4 border-green-400">
-      <h3 class="text-xl font-bold text-green-400 mb-2">
-        Academic Projects
-      </h3>
-      <ul class="list-disc list-inside space-y-3">
-        <li>
-          <strong>College Management System</strong> —
-          Student records, attendance, grading & admin workflows.
-        </li>
-        <li>
-          <strong>Android Farmer Application</strong> —
-          Crop guidance, weather updates & market pricing.
-        </li>
-      </ul>
+  <section id="experience" class="section">
+    <h2 class="section-title">Projects & Experience</h2>
+
+    <div class="grid md:grid-cols-2 gap-10">
+
+      <div class="card fade-up border-l-4 border-yellow-400">
+        <h3 class="text-xl font-bold text-yellow-400 mb-2">
+          React Native Developer — V-Ex Tech Solution
+        </h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Jul 2024 – Oct 2025 · Vadodara, Gujarat, India
+        </p>
+        <ul class="list-disc list-inside space-y-3">
+          <li>Built mobile interfaces using React Native.</li>
+          <li>Integrated APIs and backend workflows.</li>
+          <li>Worked on smart clothing and product-based applications.</li>
+        </ul>
+      </div>
+
+      <div class="card fade-up delay-1 border-l-4 border-cyan-400">
+        <h3 class="text-xl font-bold text-cyan-400 mb-2">
+          Smart Farm App
+        </h3>
+        <ul class="list-disc list-inside space-y-3">
+          <li>Restaurant booking application using MERN stack.</li>
+          <li>Booking logic, API integration, and responsive interface.</li>
+        </ul>
+      </div>
+
+      <div class="card fade-up border-l-4 border-green-400">
+        <h3 class="text-xl font-bold text-green-400 mb-2">
+          Farmer Assistant App
+        </h3>
+        <ul class="list-disc list-inside space-y-3">
+          <li>Android-based farmer support application.</li>
+          <li>Weather updates, crop advice, market pricing.</li>
+        </ul>
+      </div>
+
+      <div class="card fade-up border-l-4 border-purple-400">
+        <h3 class="text-xl font-bold text-purple-400 mb-2">
+          College Management System
+        </h3>
+        <ul class="list-disc list-inside space-y-3">
+          <li>Student, attendance, grading, and admin modules.</li>
+          <li>Built using Java, SQL, and authentication flows.</li>
+        </ul>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+  <section id="services" class="section bg-slate-900">
+    <h2 class="section-title">Services</h2>
 
-<!-- SERVICES -->
-<section id="services" class="section bg-slate-900">
-  <h2 class="section-title">Professional Services</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card fade-up">Backend Development</div>
+      <div class="card fade-up">REST API Development</div>
+      <div class="card fade-up">Mobile App Development</div>
+      <div class="card fade-up">Web Application Development</div>
+      <div class="card fade-up">Database Design</div>
+      <div class="card fade-up">Bug Fixing & Deployment Support</div>
+    </div>
+  </section>
 
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="card fade-up">Mobile App Development</div>
-    <div class="card fade-up delay-1">Website Development</div>
-    <div class="card fade-up">Web App Development</div>
-    <div class="card fade-up delay-2">Graphic Designing</div>
-  </div>
-</section>
-
-<footer>
-  © 2026 Mohit Kumar Prajapati • Built with discipline & clarity
-</footer>
+  <footer>
+    © 2026 Mohit Kumar Prajapati • Built with clarity and engineering focus
+  </footer>
 
 </body>
+
 </html>
