@@ -4,170 +4,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohit Kumar Prajapati</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Mohit Prajapati | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
     body {
       background: #020617;
-      color: #e5e7eb;
-      font-family: Inter, system-ui;
+      color: white;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 6rem 1.5rem;
+    /* animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, #facc15 0%, transparent 70%);
+      top: -250px;
+      left: -250px;
+      opacity: .08;
+      animation: glowMove 12s infinite alternate;
+      z-index: -1;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: #facc15;
-      margin-bottom: 3rem;
+    @keyframes glowMove {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(220px, 120px);
+      }
     }
 
+    /* navbar */
     nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
       background: rgba(2, 6, 23, .85);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
     }
 
-    nav a {
+    .nav-link {
       position: relative;
-      font-weight: 500;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0;
-      height: 2px;
-      background: #facc15;
       transition: .3s;
     }
 
-    nav a:hover::after {
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: #facc15;
+      transition: .4s;
+    }
+
+    .nav-link:hover::after {
       width: 100%;
     }
 
+    /* sections */
+    .section {
+      padding: 110px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #facc15;
+    }
+
+    /* hero */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background:
-        radial-gradient(circle at top, #1e293b, #020617),
-        linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9));
+      background: radial-gradient(circle at top, #1e293b, #020617);
     }
 
+    .glow {
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 12px rgba(250, 204, 21, .3);
+      }
+
+      to {
+        text-shadow: 0 0 30px rgba(250, 204, 21, .8);
+      }
+    }
+
+    /* cards */
     .card {
-      background: rgba(30, 41, 59, .9);
-      border-radius: 16px;
-      padding: 2.2rem;
-      border: 1px solid rgba(255, 255, 255, .06);
-      transition: .45s ease;
+      background: rgba(15, 23, 42, .85);
+      border-radius: 22px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, .05);
+      transition: .45s;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .05), transparent);
+      transition: .8s;
+    }
+
+    .card:hover::before {
+      left: 100%;
     }
 
     .card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 28px 60px rgba(0, 0, 0, .6);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, .5);
     }
 
-.leetcode-section {
-  background: #0f172a;
-  border-top: 1px solid rgba(255,255,255,.05);
-  border-bottom: 1px solid rgba(255,255,255,.05);
-}
-
-.leetcode-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 2rem;
-}
-
-.leetcode-card {
-  background: rgba(30,41,59,.95);
-  padding: 2rem;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.06);
-  transition: .4s ease;
-}
-
-.leetcode-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 50px rgba(0,0,0,.45);
-}
-
-.leetcode-card h3 {
-  color: #facc15;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.leetcode-card ul {
-  color: #cbd5e1;
-  line-height: 1.9;
-}
-
-.leetcode-card ul li {
-  margin-bottom: .5rem;
-}
-
-.leetcode-button {
-  text-align: center;
-  margin-top: 3rem;
-}
-    
-    .fade-up {
+    /* reveal */
+    .reveal {
       opacity: 0;
-      transform: translateY(35px);
-      animation: fadeUp 1s ease forwards;
+      transform: translateY(50px);
+      transition: 1s;
     }
 
-    .delay-1 {
-      animation-delay: .25s
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .delay-2 {
-      animation-delay: .45s
+    /* progress */
+    .progress {
+      height: 10px;
+      background: #1e293b;
+      border-radius: 20px;
+      overflow: hidden;
     }
 
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0)
+    .progress span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, #facc15, #38bdf8);
+      animation: grow 2s ease forwards;
+    }
+
+    @keyframes grow {
+      from {
+        width: 0
       }
     }
 
-    .btn {
-      padding: 14px 34px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: .35s;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #facc15, #fde047);
-      color: #000;
-    }
-
-    .btn-outline {
-      border: 2px solid #facc15;
+    /* counter */
+    .counter {
+      font-size: 2.3rem;
+      font-weight: bold;
       color: #facc15;
     }
 
     footer {
-      background: #020617;
-      padding: 2rem;
+      padding: 40px;
       text-align: center;
-      font-size: .9rem;
       color: #94a3b8;
     }
   </style>
@@ -175,193 +198,196 @@
 
 <body>
 
-  <nav class="fixed w-full z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-      <h1 class="text-xl font-bold text-yellow-400">Mohit.dev</h1>
-      <ul class="flex gap-6 text-sm">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Projects</a></li>
-        <li><a href="#services">Services</a></li>
-      </ul>
+  <!-- navbar -->
+  <nav>
+    <div class="max-w-7xl mx-auto flex justify-between p-4">
+      <h1 class="text-yellow-400 font-bold text-xl">Mohit.dev</h1>
+
+      <div class="flex gap-6 text-sm">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#leetcode" class="nav-link">LeetCode</a>
+      </div>
     </div>
   </nav>
 
+  <!-- hero -->
   <section class="hero">
-    <div class="max-w-4xl fade-up">
-      <h2 class="text-5xl font-extrabold text-yellow-400 mb-5">
-        Mohit Kumar Prajapati
-      </h2>
-      <p class="text-lg font-semibold mb-4">
-        Backend Developer | Java • Spring Boot • REST APIs • SQL
+    <div class="max-w-4xl reveal active">
+      <h1 class="text-6xl font-extrabold text-yellow-400 glow">
+        MOHIT KUMAR PRAJAPATI
+      </h1>
+
+      <p class="mt-4 text-xl">
+        Android Developer | Full Stack Engineer
       </p>
-      <p class="text-gray-300 mb-8 leading-relaxed">
-        Computer Science Engineering student focused on backend systems,
-        scalable APIs, database-driven applications, and practical full-stack development.
+
+      <p class="mt-4 text-gray-400">
+        Java • Python • Data Structures
       </p>
-      <div class="flex justify-center gap-6 flex-wrap">
-        <a href="#experience" class="btn btn-primary">View Projects</a>
-        <a href="#services" class="btn btn-outline">Services</a>
-      </div>
     </div>
   </section>
 
+  <!-- about -->
   <section id="about" class="section">
-    <h2 class="section-title fade-up">Professional Summary</h2>
-    <p class="max-w-4xl mx-auto text-center fade-up delay-1 leading-relaxed">
-      Fresher in Computer Science with hands-on project experience in backend,
-      mobile, and web development using Java, Spring Boot, React Native,
-      Node.js, MongoDB, and MySQL. Built practical systems across agriculture,
-      education, and commerce with strong focus on clean code and real-world execution.
-    </p>
+    <h2 class="section-title reveal">About Me</h2>
+
+    <div class="card reveal">
+      <p class="text-gray-300 leading-8">
+        I am an aspiring Software Engineer focused on building strong foundations in mobile and web application
+        development, with growing expertise in Java, Python, React Native, Spring Boot, and scalable backend systems.
+      </p>
+    </div>
   </section>
 
-<section id="skills" class="section bg-slate-900">
-  <h2 class="section-title">Core Skills</h2>
+  <!-- skills -->
+  <section id="skills" class="section">
+    <h2 class="section-title reveal">Technical Skills</h2>
 
-  <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 gap-6">
 
-    <div class="card fade-up">
-      <h3 class="text-xl font-semibold mb-4 text-white">Mobile & Backend Development</h3>
-      <ul class="list-disc list-inside text-slate-300 space-y-2">
-        <li>Android Development</li>
-        <li>Java</li>
-        <li>Python (Programming Language)</li>
-        <li>Back-End Web Development</li>
-      </ul>
+      <div class="card reveal">
+        <p>Java</p>
+        <div class="progress mt-2"><span style="width:92%"></span></div>
+      </div>
+
+      <div class="card reveal">
+        <p>Python</p>
+        <div class="progress mt-2"><span style="width:88%"></span></div>
+      </div>
+
+      <div class="card reveal">
+        <p>Android Development (Android Studio [Java] And React Native) </p>
+        <div class="progress mt-2"><span style="width:84%"></span></div>
+      </div>
+
+      <div class="card reveal">
+        <p>Backend Development</p>
+        <div class="progress mt-2"><span style="width:86%"></span></div>
+      </div>
+
+      <div class="card reveal">
+        <p>Frontend Development</p>
+        <div class="progress mt-2"><span style="width:80%"></span></div>
+      </div>
+
+      <div class="card reveal">
+        <p>Data Structures</p>
+        <div class="progress mt-2"><span style="width:90%"></span></div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card fade-up delay-1">
-      <h3 class="text-xl font-semibold mb-4 text-white">Frontend & Core Computer Science</h3>
-      <ul class="list-disc list-inside text-slate-300 space-y-2">
-        <li>Front-End Development</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Data Structures</li>
-      </ul>
-    </div>
+  <!-- projects -->
+  <section id="projects" class="section">
+    <h2 class="section-title reveal">Projects</h2>
 
-  </div>
-</section>
+    <div class="grid md:grid-cols-2 gap-6">
 
-<section id="leetcode" class="section leetcode-section">
-  <h2 class="section-title fade-up">Problem Solving & LeetCode</h2>
-
-  <div class="leetcode-grid">
-
-    <div class="leetcode-card fade-up">
-      <h3>LeetCode Performance</h3>
-      <ul>
-        <li>281+ Problems Solved</li>
-        <li>82.27% Acceptance Rate</li>
-        <li>45 Hard Problems Solved</li>
-        <li>141 Medium Problems Solved</li>
-        <li>95 Easy Problems Solved</li>
-        <li>Max Streak: 63 Days</li>
-      </ul>
-    </div>
-
-    <div class="leetcode-card fade-up delay-1">
-      <h3>Competitive Strength</h3>
-      <ul>
-        <li>Top 10% Submission Performance</li>
-        <li>89%+ Beat Rate in submissions</li>
-        <li>Strong consistency across active coding days</li>
-        <li>361 submissions in past year</li>
-        <li>178 total active coding days</li>
-      </ul>
-    </div>
-
-    <div class="leetcode-card fade-up delay-2">
-      <h3>Core DSA Expertise</h3>
-      <ul>
-        <li>Dynamic Programming (32)</li>
-        <li>Hash Table (65)</li>
-        <li>Binary Search (30)</li>
-        <li>Array (178)</li>
-        <li>String (62)</li>
-        <li>Sorting (40)</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="leetcode-button fade-up">
-    <a href="https://leetcode.com/u/mohit_dev-2005/" target="_blank" class="btn btn-primary">
-      View LeetCode Profile
-    </a>
-  </div>
-</section>
-  
-  <section id="experience" class="section">
-    <h2 class="section-title">Projects & Experience</h2>
-
-    <div class="grid md:grid-cols-2 gap-10">
-
-      <div class="card fade-up border-l-4 border-yellow-400">
-        <h3 class="text-xl font-bold text-yellow-400 mb-2">
-          React Native Developer — V-Ex Tech Solution
-        </h3>
-        <p class="text-sm text-gray-400 mb-4">
-          Jul 2024 – Oct 2025 · Vadodara, Gujarat, India
+      <div class="card reveal">
+        <h3 class="text-yellow-400 font-bold text-xl">Cross Platform E-Commerce App</h3>
+        <p class="mt-4 text-gray-300">
+          React Native • Node.js • MongoDB
         </p>
-        <ul class="list-disc list-inside space-y-3">
-          <li>Built mobile interfaces using React Native.</li>
-          <li>Integrated APIs and backend workflows.</li>
-          <li>Worked on smart clothing and product-based applications.</li>
-        </ul>
       </div>
 
-      <div class="card fade-up delay-1 border-l-4 border-cyan-400">
-        <h3 class="text-xl font-bold text-cyan-400 mb-2">
-          Restaurant Reservation & Ordering Platform
-        </h3>
-        <ul class="list-disc list-inside space-y-3">
-          <li>Restaurant booking application using MERN stack.</li>
-          <li>Booking logic, API integration, and responsive interface.</li>
-        </ul>
+      <div class="card reveal">
+        <h3 class="text-cyan-400 font-bold text-xl">Smart Farmer Assistance</h3>
+        <p class="mt-4 text-gray-300">
+          Java • Spring Boot • JWT
+        </p>
       </div>
 
-      <div class="card fade-up border-l-4 border-green-400">
-        <h3 class="text-xl font-bold text-green-400 mb-2">
-          Smart Farmer Assistance Application
-        </h3>
-        <ul class="list-disc list-inside space-y-3">
-          <li>Android-based farmer support application.</li>
-          <li>Weather updates, crop advice, market pricing.</li>
-        </ul>
+      <div class="card reveal">
+        <h3 class="text-green-400 font-bold text-xl">Restaurant Reservation Platform</h3>
+        <p class="mt-4 text-gray-300">
+          Node.js • Express • MongoDB
+        </p>
       </div>
 
-      <div class="card fade-up border-l-4 border-purple-400">
-        <h3 class="text-xl font-bold text-purple-400 mb-2">
-          College Management System
-        </h3>
-        <ul class="list-disc list-inside space-y-3">
-          <li>Student, attendance, grading, and admin modules.</li>
-          <li>Built using Java, SQL, and authentication flows.</li>
-        </ul>
+      <div class="card reveal">
+        <h3 class="text-purple-400 font-bold text-xl">College Management System</h3>
+        <p class="mt-4 text-gray-300">
+          SQL • Authentication • Admin Panel
+        </p>
       </div>
 
     </div>
   </section>
 
-  <section id="services" class="section bg-slate-900">
-    <h2 class="section-title">Services</h2>
+  <!-- leetcode -->
+  <section id="leetcode" class="section">
+    <h2 class="section-title reveal">LeetCode Profile</h2>
 
     <div class="grid md:grid-cols-3 gap-6">
-      <div class="card fade-up">Backend Development</div>
-      <div class="card fade-up">REST API Development</div>
-      <div class="card fade-up">Mobile App Development</div>
-      <div class="card fade-up">Web Application Development</div>
-      <div class="card fade-up">Database Design</div>
-      <div class="card fade-up">Bug Fixing & Deployment Support</div>
+
+      <div class="card reveal text-center">
+        <div class="counter" data-target="281">0</div>
+        <p>Problems Solved</p>
+      </div>
+
+      <div class="card reveal text-center">
+        <div class="counter" data-target="82">0</div>
+        <p>Acceptance %</p>
+      </div>
+
+      <div class="card reveal text-center">
+        <div class="counter" data-target="63">0</div>
+        <p>Max Streak</p>
+      </div>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-8">
+
+      <div class="card reveal">
+        <h3 class="text-yellow-400 font-bold">Languages</h3>
+        <p class="mt-4">Java — 176 solved</p>
+        <p>C++ — 110 solved</p>
+      </div>
+
+      <div class="card reveal">
+        <h3 class="text-cyan-400 font-bold">Advanced Topics</h3>
+        <p class="mt-4">Dynamic Programming</p>
+        <p>Union Find</p>
+        <p>Divide and Conquer</p>
+      </div>
+
     </div>
   </section>
 
   <footer>
-    © 2026 Mohit Kumar Prajapati • Built with clarity and engineering focus
+    © 2026 Mohit Kumar Prajapati | Professional Portfolio
   </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.reveal').forEach(el => {
+        let top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    });
+
+    document.querySelectorAll('.counter').forEach(counter => {
+      let update = () => {
+        let target = +counter.dataset.target;
+        let count = +counter.innerText;
+        let inc = target / 80;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + inc);
+          setTimeout(update, 20);
+        } else {
+          counter.innerText = target;
+        }
+      }
+      update();
+    });
+  </script>
 
 </body>
 
